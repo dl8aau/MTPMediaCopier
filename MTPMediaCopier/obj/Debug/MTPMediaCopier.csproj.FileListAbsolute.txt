@@ -1,0 +1,13 @@
+C:\Users\Viktor\source\repos\MTPMediaCopier\MTPMediaCopier\bin\Debug\MTPMediaCopier.exe.config
+C:\Users\Viktor\source\repos\MTPMediaCopier\MTPMediaCopier\bin\Debug\MTPMediaCopier.exe
+C:\Users\Viktor\source\repos\MTPMediaCopier\MTPMediaCopier\bin\Debug\MTPMediaCopier.pdb
+C:\Users\Viktor\source\repos\MTPMediaCopier\MTPMediaCopier\bin\Debug\MediaDevices.dll
+C:\Users\Viktor\source\repos\MTPMediaCopier\MTPMediaCopier\bin\Debug\MediaDevices.xml
+C:\Users\Viktor\source\repos\MTPMediaCopier\MTPMediaCopier\obj\Debug\MTPMediaCopier.csprojAssemblyReference.cache
+C:\Users\Viktor\source\repos\MTPMediaCopier\MTPMediaCopier\obj\Debug\MTPMediaCopier.Form1.resources
+C:\Users\Viktor\source\repos\MTPMediaCopier\MTPMediaCopier\obj\Debug\MTPMediaCopier.Properties.Resources.resources
+C:\Users\Viktor\source\repos\MTPMediaCopier\MTPMediaCopier\obj\Debug\MTPMediaCopier.csproj.GenerateResource.cache
+C:\Users\Viktor\source\repos\MTPMediaCopier\MTPMediaCopier\obj\Debug\MTPMediaCopier.csproj.CoreCompileInputs.cache
+C:\Users\Viktor\source\repos\MTPMediaCopier\MTPMediaCopier\obj\Debug\MTPMediaCopier.csproj.CopyComplete
+C:\Users\Viktor\source\repos\MTPMediaCopier\MTPMediaCopier\obj\Debug\MTPMediaCopier.exe
+C:\Users\Viktor\source\repos\MTPMediaCopier\MTPMediaCopier\obj\Debug\MTPMediaCopier.pdb
