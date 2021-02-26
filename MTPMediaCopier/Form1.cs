@@ -14,9 +14,7 @@ using MTPMediaCopier.util;
 namespace MTPMediaCopier
 {
     public partial class Form1 : Form
-    {
-        bool isRunning = false;
-        
+    {   
         public string getDeviceName()
         {
             return cd_deviceName.SelectedItem.ToString();
@@ -24,12 +22,13 @@ namespace MTPMediaCopier
 
         public string getPathToSave()
         {
-            return textBox2.Text;
+            return txt_folder.Text;
         }
 
         public Form1()
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.mtp;
         }
 
         
@@ -40,10 +39,8 @@ namespace MTPMediaCopier
             {
                 var param1 = getDeviceName();
                 var param2 = getPathToSave();
-                Task myTask = Task.Factory.StartNew(() => Mtp.copyAllImages(param1, param2));
-                Visible = true;
-                isRunning = true;
-                button3.Enabled = false;
+                Task myTask = Task.Factory.StartNew(() => Mtp.copyAllImages(param1, param2));               
+                btn_copy.Enabled = false;
                 myTask.ContinueWith((t) => Application.Exit(), new CancellationToken());
                 
             }
@@ -62,7 +59,6 @@ namespace MTPMediaCopier
                 foreach (MediaDevice device in mtp.findPhone())
                 {
                     cd_deviceName.Items.Add(device.FriendlyName);
-                    Console.WriteLine(device.FriendlyName);
                 }
             }
             finally
@@ -72,6 +68,9 @@ namespace MTPMediaCopier
             if (cd_deviceName.Items.Count > 0)
             {
                 cd_deviceName.SelectedIndex = 0;
+            } else
+            {
+                MessageBox.Show("Please make sure your device is connected and data transfer is allowed", "Device not found", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -88,7 +87,7 @@ namespace MTPMediaCopier
             DialogResult result = folderDlg.ShowDialog();
             if (result == DialogResult.OK)
             {
-                textBox2.Text = folderDlg.SelectedPath;
+                txt_folder.Text = folderDlg.SelectedPath;
                 Environment.SpecialFolder root = folderDlg.RootFolder;
             }
         }

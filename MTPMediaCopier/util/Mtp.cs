@@ -10,7 +10,7 @@ namespace MTPMediaCopier.util
 {
     class Mtp : IDisposable
     {
-        readonly static string[] extensions = { ".jpg", ".jpeg", ".png", ".gif", ".raw" };
+        readonly static string[] extensions = { ".jpg", ".jpeg", ".gif", ".raw" };
         public IEnumerable<MediaDevice> findPhone()
         {
             var devices = MediaDevice.GetDevices();
@@ -25,9 +25,9 @@ namespace MTPMediaCopier.util
                 device.Connect();
                 var photoDir = device.GetDirectoryInfo(@"\");
 
-                var jpg = photoDir.EnumerateFiles("*.*", SearchOption.AllDirectories);
+                var files = photoDir.EnumerateFiles("*.*", SearchOption.AllDirectories);
 
-                foreach (var file in jpg)
+                foreach (var file in files)
                 {
                     if(extensions.Any(s => file.FullName.Contains(s))){
                         MemoryStream memoryStream = new System.IO.MemoryStream();

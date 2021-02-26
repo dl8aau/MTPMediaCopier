@@ -16,7 +16,6 @@ C:\Users\Viktor\Documents\GitHub\MTPMediaCopier\MTPMediaCopier\bin\Debug\MTPMedi
 C:\Users\Viktor\Documents\GitHub\MTPMediaCopier\MTPMediaCopier\bin\Debug\MTPMediaCopier.pdb
 C:\Users\Viktor\Documents\GitHub\MTPMediaCopier\MTPMediaCopier\bin\Debug\MediaDevices.dll
 C:\Users\Viktor\Documents\GitHub\MTPMediaCopier\MTPMediaCopier\bin\Debug\MediaDevices.xml
-C:\Users\Viktor\Documents\GitHub\MTPMediaCopier\MTPMediaCopier\obj\Debug\MTPMediaCopier.csprojAssemblyReference.cache
 C:\Users\Viktor\Documents\GitHub\MTPMediaCopier\MTPMediaCopier\obj\Debug\MTPMediaCopier.Form1.resources
 C:\Users\Viktor\Documents\GitHub\MTPMediaCopier\MTPMediaCopier\obj\Debug\MTPMediaCopier.Properties.Resources.resources
 C:\Users\Viktor\Documents\GitHub\MTPMediaCopier\MTPMediaCopier\obj\Debug\MTPMediaCopier.csproj.GenerateResource.cache

@@ -29,69 +29,68 @@ namespace MTPMediaCopier
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_findDevice = new System.Windows.Forms.Button();
+            this.btn_selectFolder = new System.Windows.Forms.Button();
+            this.txt_folder = new System.Windows.Forms.TextBox();
+            this.btn_copy = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.cd_deviceName = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // btn_findDevice
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(29)))), ((int)(((byte)(56)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(180)))), ((int)(((byte)(222)))));
-            this.button1.Location = new System.Drawing.Point(36, 77);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 42);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Find Phone";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_findDevice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(29)))), ((int)(((byte)(56)))));
+            this.btn_findDevice.FlatAppearance.BorderSize = 0;
+            this.btn_findDevice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_findDevice.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_findDevice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(180)))), ((int)(((byte)(222)))));
+            this.btn_findDevice.Location = new System.Drawing.Point(36, 77);
+            this.btn_findDevice.Name = "btn_findDevice";
+            this.btn_findDevice.Size = new System.Drawing.Size(160, 42);
+            this.btn_findDevice.TabIndex = 0;
+            this.btn_findDevice.Text = "Find Phone";
+            this.btn_findDevice.UseVisualStyleBackColor = false;
+            this.btn_findDevice.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btn_selectFolder
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(29)))), ((int)(((byte)(56)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(180)))), ((int)(((byte)(222)))));
-            this.button2.Location = new System.Drawing.Point(36, 141);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(160, 42);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Select Folder";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_selectFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(29)))), ((int)(((byte)(56)))));
+            this.btn_selectFolder.FlatAppearance.BorderSize = 0;
+            this.btn_selectFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_selectFolder.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_selectFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(180)))), ((int)(((byte)(222)))));
+            this.btn_selectFolder.Location = new System.Drawing.Point(36, 141);
+            this.btn_selectFolder.Name = "btn_selectFolder";
+            this.btn_selectFolder.Size = new System.Drawing.Size(160, 42);
+            this.btn_selectFolder.TabIndex = 1;
+            this.btn_selectFolder.Text = "Select Folder";
+            this.btn_selectFolder.UseVisualStyleBackColor = false;
+            this.btn_selectFolder.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textBox2
+            // txt_folder
             // 
-            this.textBox2.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(226, 146);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(261, 33);
-            this.textBox2.TabIndex = 3;
+            this.txt_folder.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_folder.Location = new System.Drawing.Point(226, 146);
+            this.txt_folder.Name = "txt_folder";
+            this.txt_folder.Size = new System.Drawing.Size(261, 33);
+            this.txt_folder.TabIndex = 3;
             // 
-            // button3
+            // btn_copy
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(29)))), ((int)(((byte)(56)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(180)))), ((int)(((byte)(222)))));
-            this.button3.Location = new System.Drawing.Point(276, 213);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(136, 48);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Copy";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btn_copy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(29)))), ((int)(((byte)(56)))));
+            this.btn_copy.FlatAppearance.BorderSize = 0;
+            this.btn_copy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_copy.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_copy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(180)))), ((int)(((byte)(222)))));
+            this.btn_copy.Location = new System.Drawing.Point(276, 213);
+            this.btn_copy.Name = "btn_copy";
+            this.btn_copy.Size = new System.Drawing.Size(136, 48);
+            this.btn_copy.TabIndex = 4;
+            this.btn_copy.Text = "Copy";
+            this.btn_copy.UseVisualStyleBackColor = false;
+            this.btn_copy.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -107,13 +106,13 @@ namespace MTPMediaCopier
             // 
             // cd_deviceName
             // 
+            this.cd_deviceName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cd_deviceName.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cd_deviceName.FormattingEnabled = true;
             this.cd_deviceName.Location = new System.Drawing.Point(226, 77);
             this.cd_deviceName.Name = "cd_deviceName";
             this.cd_deviceName.Size = new System.Drawing.Size(261, 34);
             this.cd_deviceName.TabIndex = 6;
-            this.cd_deviceName.Text = " ";
             // 
             // label1
             // 
@@ -135,36 +134,24 @@ namespace MTPMediaCopier
             this.label2.TabIndex = 8;
             this.label2.Text = "Provided to you by Vitoman";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 199);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(200, 104);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Copying in progress, \r\nApplication will close \r\nwhen it\'s done\r\n\r\n";
-            this.label3.Visible = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(48)))), ((int)(((byte)(92)))));
             this.ClientSize = new System.Drawing.Size(530, 295);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cd_deviceName);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_copy);
+            this.Controls.Add(this.txt_folder);
+            this.Controls.Add(this.btn_selectFolder);
+            this.Controls.Add(this.btn_findDevice);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "MTP";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,15 +159,14 @@ namespace MTPMediaCopier
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_findDevice;
+        private System.Windows.Forms.Button btn_selectFolder;
+        private System.Windows.Forms.TextBox txt_folder;
+        private System.Windows.Forms.Button btn_copy;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ComboBox cd_deviceName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
     }
 }
 
