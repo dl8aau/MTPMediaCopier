@@ -3,21 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MTPMediaCopier.util
 {
     class Mtp : IDisposable
     {
-        readonly static string[] extensions = { ".jpg", ".jpeg", ".gif", ".raw" };
+        readonly static string[] EXTENSIONS = { ".jpg", ".jpeg", ".gif", ".raw" };
         public IEnumerable<MediaDevice> findPhone()
         {
             var devices = MediaDevice.GetDevices();
             return devices;
         }
 
-        public static void copyAllImages(string deviceName, string folderToWrite)
+        public static void CopyAllImages(string deviceName, string folderToWrite)
         {
             var devices = MediaDevice.GetDevices();
             using (var device = devices.First(d => d.FriendlyName == deviceName))
@@ -27,14 +25,16 @@ namespace MTPMediaCopier.util
 
                 var files = photoDir.EnumerateFiles("*.*", SearchOption.AllDirectories);
 
-                foreach (var file in files)
+                var result = from p in files
+                             where EXTENSIONS.Any(val => p.FullName.Contains(val))
+                             select p;
+
+                foreach (var file in result)
                 {
-                    if(extensions.Any(s => file.FullName.Contains(s))){
-                        MemoryStream memoryStream = new System.IO.MemoryStream();
-                        device.DownloadFile(file.FullName, memoryStream);
-                        memoryStream.Position = 0;
-                        WriteSreamToDisk(folderToWrite + "\\" + file.Name, memoryStream);
-                    }
+                    MemoryStream memoryStream = new MemoryStream();
+                    device.DownloadFile(file.FullName, memoryStream);
+                    memoryStream.Position = 0;
+                    WriteSreamToDisk(folderToWrite + "\\" + file.Name, memoryStream);
                 }
                 device.Disconnect();
             }
@@ -42,7 +42,7 @@ namespace MTPMediaCopier.util
 
         static void WriteSreamToDisk(string filePath, MemoryStream memoryStream)
         {
-            using (FileStream file = new FileStream(filePath, FileMode.Create, System.IO.FileAccess.Write))
+            using (FileStream file = new FileStream(filePath, FileMode.Create, FileAccess.Write))
             {
                 byte[] bytes = new byte[memoryStream.Length];
                 memoryStream.Read(bytes, 0, (int)memoryStream.Length);
@@ -53,7 +53,6 @@ namespace MTPMediaCopier.util
 
         public void Dispose()
         {
-            // Suppress finalization.
             GC.SuppressFinalize(this);
         }
     }

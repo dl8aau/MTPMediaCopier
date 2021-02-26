@@ -28,7 +28,7 @@ namespace MTPMediaCopier
         public Form1()
         {
             InitializeComponent();
-            this.Icon = Properties.Resources.mtp;
+            Icon = Properties.Resources.mtp;
         }
 
         
@@ -39,7 +39,7 @@ namespace MTPMediaCopier
             {
                 var param1 = getDeviceName();
                 var param2 = getPathToSave();
-                Task myTask = Task.Factory.StartNew(() => Mtp.copyAllImages(param1, param2));               
+                Task myTask = Task.Factory.StartNew(() => Mtp.CopyAllImages(param1, param2));               
                 btn_copy.Enabled = false;
                 myTask.ContinueWith((t) => Application.Exit(), new CancellationToken());
                 
