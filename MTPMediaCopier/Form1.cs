@@ -16,6 +16,7 @@ namespace MTPMediaCopier
     public partial class Form1 : Form
     {
         bool isRunning = false;
+        
         public string getDeviceName()
         {
             return cd_deviceName.SelectedItem.ToString();
@@ -31,6 +32,7 @@ namespace MTPMediaCopier
             InitializeComponent();
         }
 
+        
         private void button3_Click(object sender, EventArgs e)
         {
             
@@ -39,9 +41,11 @@ namespace MTPMediaCopier
                 var param1 = getDeviceName();
                 var param2 = getPathToSave();
                 Task myTask = Task.Factory.StartNew(() => Mtp.copyAllImages(param1, param2));
-                label3.Visible = true;
+                Visible = true;
                 isRunning = true;
+                button3.Enabled = false;
                 myTask.ContinueWith((t) => Application.Exit(), new CancellationToken());
+                
             }
             catch (Exception ex)
             {
