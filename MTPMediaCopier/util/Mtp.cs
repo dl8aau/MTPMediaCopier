@@ -21,7 +21,7 @@ namespace MTPMediaCopier.util
             ProgressBar progressBar, Label label)
         {
             var devices = MediaDevice.GetDevices();
-            using (var device = devices.First(d => d.FriendlyName == deviceName))
+            using (var device = devices.First(d => (string.IsNullOrEmpty(d.FriendlyName) ? d.Description : d.FriendlyName) == deviceName))
             {
                 device.Connect();
 

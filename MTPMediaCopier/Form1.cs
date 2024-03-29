@@ -62,7 +62,10 @@ namespace MTPMediaCopier
             {
                 foreach (MediaDevice device in mtp.findPhone())
                 {
-                    cd_deviceName.Items.Add(device.FriendlyName);
+                    if (!string.IsNullOrEmpty(device.FriendlyName))
+                        cd_deviceName.Items.Add(device.FriendlyName);
+                    else
+                        cd_deviceName.Items.Add(device.Description);
                 }
             }
             finally
