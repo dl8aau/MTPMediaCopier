@@ -39,7 +39,11 @@ namespace MTPMediaCopier
             {
                 var param1 = getDeviceName();
                 var param2 = getPathToSave();
-                Task myTask = Task.Factory.StartNew(() => Mtp.CopyAllImages(param1, param2));               
+                // Display the ProgressBar control.
+                progressBar1.Visible = true;
+
+                Task myTask = Task.Factory.StartNew(() => Mtp.CopyAllImages(param1, param2, 
+                    dateTimePicker1.Value, progressBar1, label2));
                 btn_copy.Enabled = false;
                 myTask.ContinueWith((t) => Application.Exit(), new CancellationToken());
                 
@@ -90,6 +94,11 @@ namespace MTPMediaCopier
                 txt_folder.Text = folderDlg.SelectedPath;
                 Environment.SpecialFolder root = folderDlg.RootFolder;
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

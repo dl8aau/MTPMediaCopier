@@ -36,7 +36,10 @@ namespace MTPMediaCopier
             this.button4 = new System.Windows.Forms.Button();
             this.cd_deviceName = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_findDevice
@@ -84,7 +87,7 @@ namespace MTPMediaCopier
             this.btn_copy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_copy.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_copy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(180)))), ((int)(((byte)(222)))));
-            this.btn_copy.Location = new System.Drawing.Point(276, 213);
+            this.btn_copy.Location = new System.Drawing.Point(181, 361);
             this.btn_copy.Name = "btn_copy";
             this.btn_copy.Size = new System.Drawing.Size(136, 48);
             this.btn_copy.TabIndex = 4;
@@ -125,22 +128,60 @@ namespace MTPMediaCopier
             this.label1.TabIndex = 7;
             this.label1.Text = "Image Backup Device";
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(36, 302);
+            this.progressBar1.Minimum = 1;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(451, 32);
+            this.progressBar1.Step = 1;
+            this.progressBar1.TabIndex = 8;
+            this.progressBar1.Value = 1;
+            this.progressBar1.Visible = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(395, 273);
+            this.label2.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(180)))), ((int)(((byte)(222)))));
+            this.label2.Location = new System.Drawing.Point(33, 265);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Provided to you by Vitoman";
+            this.label2.Size = new System.Drawing.Size(0, 26);
+            this.label2.TabIndex = 9;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(226, 207);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(159, 33);
+            this.dateTimePicker1.TabIndex = 10;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(29)))), ((int)(((byte)(56)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(180)))), ((int)(((byte)(222)))));
+            this.button1.Location = new System.Drawing.Point(36, 207);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(160, 42);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Import Starting";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(48)))), ((int)(((byte)(92)))));
-            this.ClientSize = new System.Drawing.Size(530, 295);
+            this.ClientSize = new System.Drawing.Size(530, 449);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cd_deviceName);
             this.Controls.Add(this.button4);
@@ -152,6 +193,7 @@ namespace MTPMediaCopier
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MTP";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,7 +208,10 @@ namespace MTPMediaCopier
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ComboBox cd_deviceName;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

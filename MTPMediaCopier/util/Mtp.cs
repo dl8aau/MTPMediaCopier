@@ -1,8 +1,10 @@
 ﻿using MediaDevices;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace MTPMediaCopier.util
 {
@@ -15,26 +17,72 @@ namespace MTPMediaCopier.util
             return devices;
         }
 
-        public static void CopyAllImages(string deviceName, string folderToWrite)
+        public static void CopyAllImages(string deviceName, string folderToWrite, DateTime startFrom, 
+            ProgressBar progressBar, Label label)
         {
             var devices = MediaDevice.GetDevices();
             using (var device = devices.First(d => d.FriendlyName == deviceName))
             {
                 device.Connect();
-                var photoDir = device.GetDirectoryInfo(@"\");
 
-                var files = photoDir.EnumerateFiles("*.*", SearchOption.AllDirectories);
+                // iterate over file systems - catch SD-cards etc...
+                IEnumerable<string> ifs = device.EnumerateFileSystemEntries("/");
 
-                var result = from p in files
-                             where EXTENSIONS.Any(val => p.FullName.Contains(val))
-                             select p;
 
-                foreach (var file in result)
+                foreach (var fsName in ifs)
                 {
-                    MemoryStream memoryStream = new MemoryStream();
-                    device.DownloadFile(file.FullName, memoryStream);
-                    memoryStream.Position = 0;
-                    WriteSreamToDisk(folderToWrite + "\\" + file.Name, memoryStream);
+                    IEnumerable<string> idir = device.EnumerateDirectories(fsName + @"/");
+                    var photoDir = device.GetDirectoryInfo(fsName + @"\DCIM\Camera");
+
+                    var files = photoDir.EnumerateFiles("*.*", SearchOption.AllDirectories);
+
+                    label.Invoke((MethodInvoker)(() => label.Text = "Scanning " + fsName.Replace("\\", "")));
+                    var result = from p in files
+                                 where EXTENSIONS.Any(val => p.FullName.Contains(val) && p.LastWriteTime > startFrom)
+                                 select p;
+
+                    if (result.Count() == 0)
+                        continue;
+                    // first path - just check and count
+                    ulong total_bytes = 0;
+                    uint files_to_copy = 0;
+                    List<MediaFileInfo> list_to_copy = new List<MediaFileInfo>();
+                    Console.WriteLine("count: " + result.Count());
+                    progressBar.Invoke((MethodInvoker)(() => progressBar.Maximum = result.Count()));
+                    progressBar.Invoke((MethodInvoker)(() => progressBar.Value = 1));
+
+                    foreach (var file in result)
+                    {
+                        progressBar.Invoke((MethodInvoker)(() => progressBar.PerformStep()));
+
+                        string targetPath = folderToWrite + "\\" + file.Name;
+                        var fi = new FileInfo(targetPath);
+                        if (fi.Exists &&
+                            fi.Length == (long)file.Length &&
+                            (file.LastWriteTime != null && fi.LastWriteTime == file.LastWriteTime))
+                            continue;
+                        list_to_copy.Add(file);
+                        total_bytes += file.Length;
+                        files_to_copy++;
+                    }
+                    Console.WriteLine("to copy " + files_to_copy + " - total " + total_bytes + " " + total_bytes / (1024L * 1024L * 1024L));
+
+                    label.Invoke((MethodInvoker)(() => label.Text = "Copying " + files_to_copy + " files from " + fsName.Replace("\\", "")));
+                    progressBar.Invoke((MethodInvoker)(() => progressBar.Value = 1));
+                    foreach (var file in list_to_copy)
+                    {
+                        progressBar.Invoke((MethodInvoker)(() => progressBar.PerformStep()));
+
+                        string targetPath = folderToWrite + "\\" + file.Name;
+
+                        MemoryStream memoryStream = new MemoryStream();
+                        device.DownloadFile(file.FullName, memoryStream);
+                        memoryStream.Position = 0;
+                        Console.WriteLine("copying " + targetPath);
+                        WriteSreamToDisk(targetPath, memoryStream);
+                        if (file.LastWriteTime != null)
+                            File.SetLastWriteTime(targetPath, (System.DateTime)file.LastWriteTime);
+                    }
                 }
                 device.Disconnect();
             }
