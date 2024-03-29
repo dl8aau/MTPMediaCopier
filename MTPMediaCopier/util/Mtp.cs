@@ -38,7 +38,9 @@ namespace MTPMediaCopier.util
 
                     label.Invoke((MethodInvoker)(() => label.Text = "Scanning " + fsName.Replace("\\", "")));
                     var result = from p in files
-                                 where EXTENSIONS.Any(val => p.FullName.Contains(val) && p.LastWriteTime > startFrom)
+                                     // fixme: skip .trashed-*
+                                 where EXTENSIONS.Any(val => p.FullName.Contains(val) && !p.Name.StartsWith(".trashed-")
+                                                    && p.LastWriteTime > startFrom)
                                  select p;
 
                     if (result.Count() == 0)
